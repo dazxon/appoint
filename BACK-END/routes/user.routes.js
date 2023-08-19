@@ -1,6 +1,5 @@
 const express = require("express");
 
-const { isNotLogged, isLogged } = require("../middlewares");
 const {
   userRegister,
   userLogin,
@@ -9,6 +8,7 @@ const {
 } = require("../controllers/user");
 
 // middlewares
+const { isNotLogged, isLogged } = require("../middlewares");
 
 // router express
 const userRouter = express.Router();

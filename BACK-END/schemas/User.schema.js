@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const { addressSchema, emailSchema, phoneSchema } = require("./index");
+const addressSchema = require("./Address.schema");
+const emailSchema = require("./Email.schema");
+const phoneSchema = require("./Phone.schema");
 
 const UserSchema = new mongoose.Schema(
   {

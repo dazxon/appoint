@@ -5,7 +5,11 @@ const userRegister = async (req, res) => {
     const { email } = req.body;
     const user = await UserModel.findOne({ email });
     if (user) return res.status(404).json({ message: "Invalid credentials" });
-    await UserModel.create(req.body);
+    const userCreated = await UserModel.create({ ...req.body });
+    if ((await UserModel.countDocuments()) === 1) {
+      userCreated.role = "admin";
+      await userCreated.save();
+    }
     return res.sendStatus(201);
   } catch (error) {
     return res.status(500).send(error.message);
