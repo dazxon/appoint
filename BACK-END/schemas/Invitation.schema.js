@@ -15,7 +15,15 @@ const invitationSchema = new mongoose.Schema(
     },
     state: {
       type: String,
-      enum: ["created", "sent", "received", "answered", "rejected", "expired"],
+      enum: [
+        "created",
+        "sent",
+        "received",
+        "answered",
+        "rejected",
+        "expired",
+        "deleted",
+      ],
       default: "created",
     },
     expirationDate: {

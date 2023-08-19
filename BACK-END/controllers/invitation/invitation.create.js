@@ -8,11 +8,11 @@ const invitationCreate = async (req, res) => {
       return res.status(404).json({ message: "Sender not found" });
     }
 
-    const exp = req.body.expirationDate;
+    const expirationDate = req.body.expirationDate;
 
     const invitation = new invitationModel({
       sender: sender._id,
-      expirationDate: exp,
+      expirationDate,
     });
 
     await invitation.save();
